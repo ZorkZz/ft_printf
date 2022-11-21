@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:58:18 by astachni          #+#    #+#             */
-/*   Updated: 2022/11/21 21:45:00 by astachni         ###   ########.fr       */
+/*   Updated: 2022/11/22 00:20:08 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	find_type(const char *str, int *tab, size_t start)
 	size_t	index_str;
 	size_t	index_tab;
 
+	if (!str)
+		return (-1);
 	index_str = start;
 	while (str[index_str])
 	{
@@ -29,6 +31,20 @@ int	find_type(const char *str, int *tab, size_t start)
 			index_tab++;
 		}
 		index_str++;
+	}
+	return (-2);
+}
+
+int	type_in_char(const char c, int *tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		if (c == (const int)tab[i])
+			return (-1);
+		i++;
 	}
 	return (0);
 }

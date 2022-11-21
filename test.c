@@ -4,5 +4,6 @@
 int	main(void)
 {
 	char	*str = "le caca cest delicieux";
-	ft_printf("%s\n", str);
+	//char 	*str1 = "jaime pas les arabes";
+	ft_printf("bonjour, %s\n", str);
 }
