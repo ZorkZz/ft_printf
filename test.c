@@ -3,6 +3,6 @@
 
 int	main(void)
 {
-	ft_printf(10, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100);
-	// printf("aaaaaa\n");
+	char	*str = "le caca cest delicieux";
+	ft_printf("%s\n", str);
 }
