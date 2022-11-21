@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: marvin@42.fr <astachni>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 19:10:58 by astachni          #+#    #+#             */
-/*   Updated: 2022/11/21 20:17:36 by astachni         ###   ########.fr       */
+/*   Created: 2022/11/07 14:52:40 by astachni          #+#    #+#             */
+/*   Updated: 2022/11/10 19:04:47 by marvin@42.f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_printf(int nb, ...)
+int	ft_isdigit(int c)
 {
-	va_list	arg;
-	size_t	i;
-
-	// if (!str)
-	// 	return (-1);
-	va_start(arg, nb);
-	while (nb > 0)
-	{
-		int n = va_arg(arg, int);
-		printf("%d\n", n);
-		nb--;
-	}
+	if (c >= '0' && c <= '9')
+		return (c);
+	return (0);
 }

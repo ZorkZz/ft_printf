@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: marvin@42.fr <astachni>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 19:10:58 by astachni          #+#    #+#             */
-/*   Updated: 2022/11/21 20:17:36 by astachni         ###   ########.fr       */
+/*   Created: 2022/11/07 16:06:25 by astachni          #+#    #+#             */
+/*   Updated: 2022/11/17 20:03:01 by marvin@42.f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_printf(int nb, ...)
+size_t	ft_strlen(const char *str)
 {
-	va_list	arg;
 	size_t	i;
 
-	// if (!str)
-	// 	return (-1);
-	va_start(arg, nb);
-	while (nb > 0)
+	i = 0;
+	while (str[i])
 	{
-		int n = va_arg(arg, int);
-		printf("%d\n", n);
-		nb--;
+		i++;
 	}
+	return (i);
 }

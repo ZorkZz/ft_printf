@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: marvin@42.fr <astachni>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 19:10:58 by astachni          #+#    #+#             */
-/*   Updated: 2022/11/21 20:17:36 by astachni         ###   ########.fr       */
+/*   Created: 2022/11/08 15:35:48 by marvin@42.f       #+#    #+#             */
+/*   Updated: 2022/11/20 18:49:17 by marvin@42.f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_printf(int nb, ...)
+int	ft_strncmp(char const *str1, char const *str2, size_t size)
 {
-	va_list	arg;
-	size_t	i;
-
-	// if (!str)
-	// 	return (-1);
-	va_start(arg, nb);
-	while (nb > 0)
-	{
-		int n = va_arg(arg, int);
-		printf("%d\n", n);
-		nb--;
-	}
+	if (size > ft_strlen(str1))
+		size = ft_strlen(str1) + 1;
+	if (size > ft_strlen(str2))
+		size = ft_strlen(str2) + 1;
+	return (ft_memcmp(str1, str2, size));
 }

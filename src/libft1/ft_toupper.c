@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: marvin@42.fr <astachni>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 19:10:58 by astachni          #+#    #+#             */
-/*   Updated: 2022/11/21 20:17:36 by astachni         ###   ########.fr       */
+/*   Created: 2022/11/08 15:20:03 by marvin@42.f       #+#    #+#             */
+/*   Updated: 2022/11/10 16:55:09 by marvin@42.f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_printf(int nb, ...)
+int	ft_toupper(int c)
 {
-	va_list	arg;
-	size_t	i;
-
-	// if (!str)
-	// 	return (-1);
-	va_start(arg, nb);
-	while (nb > 0)
+	if (c >= 'a' && c <= 'z')
 	{
-		int n = va_arg(arg, int);
-		printf("%d\n", n);
-		nb--;
+		c -= 32;
 	}
+	return (c);
 }

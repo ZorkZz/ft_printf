@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   bonus_ft_lstnew.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: marvin@42.fr <astachni>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 19:10:58 by astachni          #+#    #+#             */
-/*   Updated: 2022/11/21 20:17:36 by astachni         ###   ########.fr       */
+/*   Created: 2022/11/18 20:45:06 by aastachni         #+#    #+#             */
+/*   Updated: 2022/11/19 18:48:38 by marvin@42.f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_printf(int nb, ...)
+t_list	*ft_lstnew(void *content)
 {
-	va_list	arg;
-	size_t	i;
+	t_list	*elm;
 
-	// if (!str)
-	// 	return (-1);
-	va_start(arg, nb);
-	while (nb > 0)
-	{
-		int n = va_arg(arg, int);
-		printf("%d\n", n);
-		nb--;
-	}
+	elm = malloc(sizeof(*content));
+	if (!elm)
+		return (NULL);
+	elm->content = content;
+	elm->next = NULL;
+	return (elm);
 }

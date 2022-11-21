@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: marvin@42.fr <astachni>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 19:10:58 by astachni          #+#    #+#             */
-/*   Updated: 2022/11/21 20:17:36 by astachni         ###   ########.fr       */
+/*   Created: 2022/11/19 23:26:01 by marvin@42.f       #+#    #+#             */
+/*   Updated: 2022/11/20 01:05:27 by marvin@42.f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_printf(int nb, ...)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	va_list	arg;
-	size_t	i;
+	t_list	*next;
 
-	// if (!str)
-	// 	return (-1);
-	va_start(arg, nb);
-	while (nb > 0)
+	if (!lst || !del)
+		return ;
+	next = *lst;
+	while (next != NULL)
 	{
-		int n = va_arg(arg, int);
-		printf("%d\n", n);
-		nb--;
+		next = next->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = next;
 	}
 }
