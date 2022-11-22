@@ -6,7 +6,7 @@
 #    By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 20:55:44 by astachni          #+#    #+#              #
-#    Updated: 2022/11/21 21:58:08 by astachni         ###   ########.fr        #
+#    Updated: 2022/11/22 07:23:41 by astachni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CFLAGS = -Wall -Wextra -Werror
 HEADER = ft_printf.h
 
 %.o: %.c ${HEADER} Makefile
-	$(CC) ${CFLAGS} -c $< -o ${<:.c=.o}
+	$(CC)  -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
 	ar rcs ${NAME} ${OBJS}
