@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   type.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: marvin@42.fr <astachni>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:58:18 by astachni          #+#    #+#             */
-/*   Updated: 2022/11/22 07:34:53 by astachni         ###   ########.fr       */
+/*   Updated: 2022/11/22 23:05:45 by marvin@42.f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf.h"
+#include "../ft_printf.h"
 
 int	find_type(const char *str, int *tab, size_t start)
 {
@@ -63,5 +63,5 @@ int	*type_tab_create(int *tab)
 	tab[6] = 'x';
 	tab[7] = 'X';
 	tab[8] = '%';
-	return(tab);
+	return (tab);
 }

@@ -3,7 +3,10 @@
 
 int	main(void)
 {
-	char	*str = "le caca cest delicieux";
-	char 	*str1 = "jaime pas les arabes";
-	ft_printf("bonjour, %s %s aaaaaaaaaaaazizi\n", str, str1);
+	char	c = 'k';
+	char	d = 'x';
+	void	*p = malloc(9);
+	printf("vrai fonction %c\n", c);
+	ft_printf("ma fonction %c\n", c);
+	free(p);
 }
