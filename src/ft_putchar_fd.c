@@ -6,13 +6,14 @@
 /*   By: marvin@42.fr <astachni>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 15:58:42 by marvin@42.f       #+#    #+#             */
-/*   Updated: 2022/11/22 23:03:06 by marvin@42.f      ###   ########.fr       */
+/*   Updated: 2022/11/23 19:25:14 by marvin@42.f      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
 	write (fd, &c, 1);
+	return (1);
 }

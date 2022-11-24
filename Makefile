@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marvin@42.fr <astachni>                    +#+  +:+       +#+         #
+#    By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 20:55:44 by astachni          #+#    #+#              #
-#    Updated: 2022/11/22 23:09:39 by marvin@42.f      ###   ########.fr        #
+#    Updated: 2022/11/24 17:36:29 by astachni@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 
-SRCS = ft_printf.c src/ft_putchar_fd.c src/ft_putendl_fd.c src/ft_putnbr_fd.c src/ft_putstr_fd.c src/type.c src/ft_putnbr_base.c
+SRCS = ft_printf.c src/ft_putchar_fd.c src/ft_putendl_fd.c src/ft_putnbr_fd.c src/ft_putstr_fd.c src/ft_putnbr_base.c src/ft_putunbr_fd.c src/print_func.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -27,7 +27,7 @@ CFLAGS = -Wall -Wextra -Werror
 HEADER = ft_printf.h
 
 %.o: %.c ${HEADER} Makefile
-	$(CC) ${CFLAGS}  -c $< -o ${<:.c=.o}
+	$(CC) $(CFLAGS)  -c $< -o ${<:.c=.o}
 
 $(NAME):	${OBJS}
 	ar rcs ${NAME} ${OBJS}

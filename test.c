@@ -6,7 +6,9 @@ int	main(void)
 	char	c = 'k';
 	char	d = 'x';
 	void	*p = malloc(9);
-	printf ("%d", printf("vrai fonction %c\n"));
-	ft_printf("ma fonction %c\n", d);
+	char	*a = "fe";
+
+	printf("valeur de retour la mienne: %d\n", ft_printf("%s%%%%%%%%%%%%%%%%%p\n", a, p));
+	printf("valeur de retour vrai: %d\n", ft_printf("%s%%%%%%%%%%%%%%%%%p\n", a, p));
 	free(p);
 }

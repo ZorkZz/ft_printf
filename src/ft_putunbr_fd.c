@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putunbr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin@42.fr <astachni>                    +#+  +:+       +#+        */
+/*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 16:03:01 by marvin@42.f       #+#    #+#             */
-/*   Updated: 2022/11/23 20:38:35 by marvin@42.f      ###   ########.fr       */
+/*   Created: 2022/11/13 16:20:53 by marvin@42.f       #+#    #+#             */
+/*   Updated: 2022/11/24 17:13:59 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_putstr_fd(char *s, int fd)
+static void	ft_putnbr(int n, int fd)
 {
-	int	i;
+	write(fd, &n, 1);
+}
+
+unsigned int	ft_putunbr_fd(unsigned int n, int fd)
+{
+	unsigned int	i;
 
 	i = 0;
-	if (!s)
-		return (-1);
-	while (s[i])
+	if (n < 0)
 	{
-		write(fd, &s[i], 1);
+		ft_putnbr('-', fd);
+		n *= -1;
+		i++;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	else if (n < 10)
+	{
+		ft_putnbr('0' + n, fd);
 		i++;
 	}
 	return (i);
