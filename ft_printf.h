@@ -6,7 +6,7 @@
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 19:04:49 by astachni          #+#    #+#             */
-/*   Updated: 2022/11/27 21:30:42 by astachni@st      ###   ########.fr       */
+/*   Updated: 2022/11/27 23:52:58 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int				ft_printf(const char *str, ...);
 int				print_type(char c, va_list args);
 int				verify_char(const char c);
 int				ft_putchar_fd(char c, int fd);
-int				ft_putendl_fd(char *s, int fd);
-int				ft_putnbr_fd(int n, int fd);
-unsigned int	ft_putunbr_fd(unsigned int n, int fd);
 int				ft_putstr_fd(char *s, int fd);
-int				ft_putnbr_base(int nbr, char *base);
 int				ft_putvoid(void	*nbr, char	*base);
+char			*ft_itoa(int n);
+char			*ft_itoa_u(unsigned int n);
+char			*itoa_hex(size_t n, char *base);
+char			*ft_strdup(const char *src);
 
 #endif

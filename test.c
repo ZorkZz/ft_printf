@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <limits.h>
 #include "ft_printf.h"
 
 int	main(void)
@@ -10,7 +11,7 @@ int	main(void)
 
 	//printf("valeur de retour la mienne: %d\n", ft_printf("%s\n"));
 	//printf("valeur de retour la vrai: %d\n", printf("%s\n"));
-	printf("vrai fonction retourne: %d\n", printf("%d\n", -10));
-	printf("ma fonction retourne: %d\n", ft_printf("%d\n", -10));
+	printf("vrai fonction retourne: %d\n", printf("%p\n", p));
+	printf("ma fonction retourne: %d\n", ft_printf("%p\n", p));
 	free(p);
 }

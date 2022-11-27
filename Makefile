@@ -6,7 +6,7 @@
 #    By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 20:55:44 by astachni          #+#    #+#              #
-#    Updated: 2022/11/27 20:21:19 by astachni@st      ###   ########.fr        #
+#    Updated: 2022/11/27 23:28:59 by astachni@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 NAME = libftprintf.a
 
-SRCS = ft_printf.c src/ft_putchar_fd.c src/ft_putendl_fd.c src/ft_putnbr_fd.c src/ft_putstr_fd.c src/ft_putnbr_base.c src/ft_putunbr_fd.c src/print_func.c src/ft_putvoid.c
+SRCS = ft_printf.c src/ft_putchar_fd.c src/ft_putstr_fd.c src/print_func.c src/ft_putvoid.c src/ft_itoa.c src/ft_itoa_u.c src/itoa_hex.c src/ft_strdup.c
 
 OBJS = $(SRCS:.c=.o)
 

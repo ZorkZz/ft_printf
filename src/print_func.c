@@ -6,7 +6,7 @@
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:47:22 by astachni@st       #+#    #+#             */
-/*   Updated: 2022/11/27 21:29:28 by astachni@st      ###   ########.fr       */
+/*   Updated: 2022/11/27 23:54:02 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,18 @@ int	print_type(char c, va_list args)
 	else if (c == 'c')
 		return (ft_putchar_fd((char)va_arg(args, int), 1));
 	else if (c == 'd' || c == 'i')
-		return (ft_putnbr_fd((int)va_arg(args, int), 1));
+		return (ft_putstr_fd(ft_itoa(va_arg(args, int)), 1));
 	else if (c == 'u')
-		return (ft_putunbr_fd((unsigned int)va_arg(args, unsigned int), 1));
+		return (ft_putstr_fd(ft_itoa_u(va_arg(args, unsigned int)), 1));
 	else if (c == 'x')
-		return (ft_putnbr_base((int)va_arg(args, int), "0123456789abcdef"));
+		return (ft_putstr_fd(itoa_hex(va_arg(args, int), "0123456789abcdef"), 1));
 	else if (c == 'X')
-		return (ft_putnbr_base((int)va_arg(args, int), "0123456789ABCDEF"));
+		return (ft_putstr_fd(itoa_hex(va_arg(args, int), "0123456789ABCDEF"), 1));
 	else if (c == 'p')
-		return (ft_putvoid(va_arg(args, void *), "0123456789abcdef"));
+	{
+		write(1, "0x", 2);
+		return (ft_putstr_fd(itoa_hex(va_arg(args, int), "0123456789abcdef"), 1) + 2);
+	}
 	else if (c == '%')
 		return (ft_putchar_fd('%', 1));
 	return (0);

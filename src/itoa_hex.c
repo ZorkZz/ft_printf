@@ -1,40 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunbr_fd.c                                    :+:      :+:    :+:   */
+/*   itoa_hex.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 16:20:53 by marvin@42.f       #+#    #+#             */
-/*   Updated: 2022/11/27 21:28:41 by astachni@st      ###   ########.fr       */
+/*   Created: 2022/11/27 22:38:08 by astachni@st       #+#    #+#             */
+/*   Updated: 2022/11/27 23:52:49 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+#include <stdio.h>
 
-static int	ft_putnbr(unsigned int n, int fd)
+static int	nbr(int n)
 {
-	return (write(fd, &n, 1));
-}
-
-unsigned int	ft_putunbr_fd(unsigned int n, int fd)
-{
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	if (n < 0)
+	while (n > 16)
 	{
-		i += ft_putnbr('-', fd);
-		n *= -1;
-	}
-	if (n >= 10)
-	{
-		ft_putunbr_fd(n / 10, fd);
-		i += ft_putunbr_fd(n % 10, fd);
-	}
-	else if (n < 10)
-	{
-		i += ft_putnbr('0' + n, fd);
+		n /= 16;
+		i++;
 	}
 	return (i);
+}
+
+char	*itoa_hex(size_t n, char *base)
+{
+	char	*result;
+	int		len;
+
+
+	if (!base)
+		return (0);
+	len = nbr(n);
+	result = malloc((len + 1) * sizeof(char *));
+	if (!result)
+		return (NULL);
+	result[len + 1] = 0;
+	while (n >= 16)
+	{
+		result[len--] = base[n % 16];
+		n /= 16;
+	}
+	result[len--] = base[n % 16];
+	return (result);
 }

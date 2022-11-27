@@ -1,42 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_itoa_u.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 16:20:53 by marvin@42.f       #+#    #+#             */
-/*   Updated: 2022/11/27 21:30:18 by astachni@st      ###   ########.fr       */
+/*   Created: 2022/11/27 22:14:19 by astachni@st       #+#    #+#             */
+/*   Updated: 2022/11/27 23:35:19 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int	ft_putnbr(int n, int fd)
+static unsigned int	nbr(unsigned int n)
 {
-	return (write(fd, &n, 1));
+	unsigned int	i;
+
+	i = 0;
+	while (n >= 10)
+	{
+		n /= 10;
+		i++;
+	}
+	i++;
+	return (i);
 }
 
-int	ft_putnbr_fd(int n, int fd)
+char	*ft_itoa_u(unsigned int n)
 {
-	if (n == -2147483648)
-		return (write(fd, "-2147483648", 11));
-	else if (n >= -2147483647 && n <= 2147483647)
+	char				*str;
+	unsigned int		len;
+
+	len = nbr(n);
+	str = malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	str[len] = 0;
+	while (n >= 10)
 	{
-		if (n < 0)
-		{
-			ft_putnbr('-', fd);
-			n *= -1;
-		}
-		if (n >= 10)
-		{
-			ft_putnbr_fd(n / 10, fd);
-			ft_putnbr_fd(n % 10, fd);
-		}
-		else if (n < 10)
-		{
-			ft_putnbr('0' + n, fd);
-		}
+		str[len--] = n % 10 + '0';
+		n /= 10;
 	}
-	return ();
+	str[len--] = n + '0';
+	return (str);
 }
