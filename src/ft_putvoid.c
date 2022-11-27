@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_putvoid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/11 09:28:18 by astachni          #+#    #+#             */
-/*   Updated: 2022/11/27 21:16:03 by astachni@st      ###   ########.fr       */
+/*   Created: 2022/11/27 20:08:06 by astachni@st       #+#    #+#             */
+/*   Updated: 2022/11/27 20:27:44 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int	ft_putchar(char c)
+size_t	base_converter_void(char *base)
 {
-	return (write (1, &c, 1));
-}
-
-unsigned int	base_converter(char *base)
-{
-	unsigned int	i0;
-	unsigned int	i1;
+	size_t	i0;
+	size_t	i1;
 
 	i0 = 0;
 	while (base[i0] != '\0')
@@ -41,39 +36,32 @@ unsigned int	base_converter(char *base)
 	return (i0);
 }
 
-int	ft_recursive(unsigned int nbr, char *base, unsigned int base_nbr)
+int	ft_recursive_void(uintptr_t nbr, char *base, size_t base_nbr, size_t i)
 {
-	static int	i = 0;
-
 	if (nbr >= 0 && nbr < base_nbr)
 	{
-		i += ft_putchar(base[nbr]);
+		ft_putchar_fd(base[nbr], 1);
+		i++;
 	}
 	else
 	{
-		ft_recursive(nbr / base_nbr, base, base_nbr);
-		ft_putchar(base[nbr % base_nbr]);
+		ft_recursive_void(nbr / base_nbr, base, base_nbr, i);
+		ft_putchar_fd(base[nbr % base_nbr], 1);
 		i++;
 	}
 	return (i);
 }
 
-int	ft_putnbr_base(int nbr, char *base)
+int	ft_putvoid(void	*nbr, char	*base)
 {
-	unsigned int	base_nbr;
-	unsigned int	nbr_u;
+	uintptr_t	nb;
+	size_t		count;
+	size_t		base_nbr;
 
-	base_nbr = base_converter(base);
-	if (base_nbr == 0)
-		return (-1);
-	else if (base_nbr == 1)
-		return (-1);
-	if (nbr < 0)
-	{
-		ft_putchar('-');
-		nbr_u = nbr * -1;
-	}
-	else
-		nbr_u = nbr;
-	return (ft_recursive(nbr_u, base, base_nbr));
+	nb = (uintptr_t)nbr;
+	base_nbr = base_converter_void(base);
+	count = 0;
+	count = write(1, "0x", 2);
+	count = ft_recursive_void(nb, base, base_nbr, count);
+	return ((int)count);
 }
