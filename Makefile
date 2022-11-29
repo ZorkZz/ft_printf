@@ -14,7 +14,7 @@
 
 NAME = libftprintf.a
 
-SRCS = ft_printf.c src/ft_putchar_fd.c src/ft_putstr_fd.c src/print_func.c src/ft_putvoid.c src/ft_itoa.c src/ft_itoa_u.c src/itoa_hex.c src/ft_strdup.c
+SRCS = ft_printf.c src/ft_putchar_fd.c src/ft_putstr_fd.c src/print_func.c src/ft_itoa.c src/ft_itoa_u.c src/itoa_hex.c src/ft_strdup.c
 
 OBJS = $(SRCS:.c=.o)
 
