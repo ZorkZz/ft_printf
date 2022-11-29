@@ -14,16 +14,33 @@
 
 int	print_type(char c, va_list args)
 {
+	char	*str;
+	int		i
 	if (c == 's')
 		return (ft_putstr_fd((char *)va_arg(args, char *), 1));
 	else if (c == 'c')
 		return (ft_putchar_fd((char)va_arg(args, int), 1));
 	else if (c == 'd' || c == 'i')
-		return (ft_putstr_fd(ft_itoa(va_arg(args, int)), 1));
+	{
+		*str = ft_itoa(va_arg(args, int));
+		i = ft_putstr_fd(str, 1);
+		free(str)
+		return (i);
+	}
 	else if (c == 'u')
-		return (ft_putstr_fd(ft_itoa_u(va_arg(args, unsigned int)), 1));
+	{
+		*str = ft_itoa_u(va_arg(args, unsigned int));
+		i = ft_putstr_fd(str, 1);
+		free(str);
+		return (i);
+	}
 	else if (c == 'x')
-		return (ft_putstr_fd(itoa_hex(va_arg(args, int), "0123456789abcdef"), 1));
+	{
+		*str = itoa_hex(va_arg(args, int), "0123456789abcdef");
+		i = ft_putstr_fd(str, 1);
+		free (str);
+		return (i);
+	}
 	else if (c == 'X')
 		return (ft_putstr_fd(itoa_hex(va_arg(args, int), "0123456789ABCDEF"), 1));
 	else if (c == 'p')
