@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   itoa_hex.c                                         :+:      :+:    :+:   */
+/*   itoa_hex_point.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 22:38:08 by astachni@st       #+#    #+#             */
-/*   Updated: 2022/11/29 20:54:27 by astachni@st      ###   ########.fr       */
+/*   Created: 2022/11/29 20:47:26 by astachni@st       #+#    #+#             */
+/*   Updated: 2022/11/29 21:16:54 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 #include <stdio.h>
 
-static int	nbr(unsigned int n)
+static int	nbr(size_t n)
 {
 	int	i;
 
@@ -26,13 +26,13 @@ static int	nbr(unsigned int n)
 	return (i);
 }
 
-char	*itoa_hex(unsigned int n, char *base)
+char	*itoa_hex_point(size_t n, char *base)
 {
 	char	*result;
 	int		len;
 
 	if (!base)
-		return (0);
+		return (NULL);
 	len = nbr(n);
 	result = malloc((len + 1) * sizeof(char));
 	if (!result)

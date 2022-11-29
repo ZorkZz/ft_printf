@@ -6,7 +6,7 @@
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 22:14:19 by astachni@st       #+#    #+#             */
-/*   Updated: 2022/11/27 23:35:19 by astachni@st      ###   ########.fr       */
+/*   Updated: 2022/11/29 18:19:39 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ char	*ft_itoa_u(unsigned int n)
 	if (!str)
 		return (NULL);
 	str[len] = 0;
+	len --;
 	while (n >= 10)
 	{
-		str[len--] = n % 10 + '0';
+		str[len] = n % 10 + '0';
 		n /= 10;
+		len--;
 	}
-	str[len--] = n + '0';
+	str[len] = n + '0';
 	return (str);
 }

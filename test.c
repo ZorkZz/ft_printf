@@ -11,7 +11,7 @@ int	main(void)
 
 	//printf("valeur de retour la mienne: %d\n", ft_printf("%s\n"));
 	//printf("valeur de retour la vrai: %d\n", printf("%s\n"));
-	printf("vrai fonction retourne: %d\n", printf("%u%d%s\n", 1, 2, NULL));
-	printf("vrai fonction retourne: %d\n", ft_printf("%u%d%s\n", 1, 2, NULL));
+	printf("vrai fonction retourne: %d\n", printf("%x", 89462451));
+	printf("ma fonction retourne: %d\n", ft_printf("%x", 89462451));
 	free(p);
 }
