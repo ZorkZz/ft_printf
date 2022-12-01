@@ -6,12 +6,11 @@
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 20:47:26 by astachni@st       #+#    #+#             */
-/*   Updated: 2022/11/30 18:33:21 by astachni@st      ###   ########.fr       */
+/*   Updated: 2022/12/01 20:36:46 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-#include <stdio.h>
 
 static int	nbr(size_t n)
 {

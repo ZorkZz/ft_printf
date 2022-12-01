@@ -6,12 +6,11 @@
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 22:38:08 by astachni@st       #+#    #+#             */
-/*   Updated: 2022/11/29 20:54:27 by astachni@st      ###   ########.fr       */
+/*   Updated: 2022/12/01 20:37:04 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-#include <stdio.h>
 
 static int	nbr(unsigned int n)
 {
