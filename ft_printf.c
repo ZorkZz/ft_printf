@@ -6,7 +6,7 @@
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 16:41:41 by astachni@st       #+#    #+#             */
-/*   Updated: 2022/12/01 20:44:09 by astachni@st      ###   ########.fr       */
+/*   Updated: 2022/12/04 19:38:31 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ int	ft_printf(const char *str, ...)
 	if (!str || write (1, "", 0) != 0)
 		return (-1);
 	va_start(args, str);
-	while (str[len_str])
+	while (str[len_str] != '\0')
 	{
+		if (str[len_str] == '%' && str[len_str + 1] == '\0')
+			break ;
 		if (verify_char(str[len_str + 1]) == 0 && str[len_str] == '%')
 			len_str++;
 		else if (str[len_str] != '%')
